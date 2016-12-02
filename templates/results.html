@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Flask Intro</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
-  </head>
+   <head>
+      <title>Flask Intro</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+      <link href="static/style.css" rel="stylesheet" media="screen">
+   </head>
+   <body>
+      <div class="container">
+         <!--Start container-->
+         <h1>Query Results</h1>
 
-  <body>
-    <div class="container"> <!--Start container-->
-      <h1>Query Results</h1>
-      <br>
-      <br>
-      <p>Query= {{query}}</p>
-    </div>
+         {%  if result | length < 1  %}
+           <h2>NO RESULT</h2>
 
-  </body>
+         {%  else  %}
+
+         <table class="table table-bordered">
+            <tr>
+               {% for column in result[0] %} 
+               <th>{{column}}</th>
+               {%   endfor   %}
+            </tr>
+
+            {%   for row in result[1]   %} 
+            <tr>
+               {%   for header in result[0]  %}
+               <td>{{  row[header]  }}</td>
+               {%   endfor   %}
+            </tr>
+            {%   endfor   %}
+         </table>
+         {% endif %}
+
+      </div>
+   </body>
 </html>
