@@ -5,16 +5,19 @@
    <div id="resultSection" class="container">
       <!--Start container-->
       <div class='row'>
+         <form role="form" action="{{ url_for('hello') }}">
+           <button type="submit" style="float:left" class="btn btn-default">Back to home page</button>
+         </form>
          <div class="col-md-12">
             <div id="title">Query Results</div>
             <br>
             <br>
-
             {%  if result | length < 1  %}
             <h2>NO RESULT</h2>
             {%  else  %}
-            
-            <div class="tables">
+            <p>Query = {{result[2]}}</p>
+            <br>
+            <div class="tables" style="height: 410px;overflow: scroll;">
             <table class="table table-bordered">
                <tr>
                   {% for column in result[0] %} 

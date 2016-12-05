@@ -13,6 +13,7 @@ configDB = {
 	'autocommit': dbApp.config.DBautocommit# ,
 }
 
+#Custom query
 def query(query='', parameters=()):
 	cnx = mysql.connector.connect(**configDB)
 	if cnx.is_connected():
@@ -36,17 +37,4 @@ def query(query='', parameters=()):
 		result.append(values)
 		cnx.close()
 		return result
-
-def getAllTeams():
-	cnx = mysql.connector.connect(**configDB)
-	string = 'SELECT CONCAT(t.location, " ", t.team_name) FROM NFLDB.Teams t'
-	if cnx.is_connected():
-		print('database connection established.')
-		pass
-	else:
-		print('database connection failed.')
-	cursor = cnx.cursor()
-	cursor.execute(string)
-	result = [column[0] for column in cursor.fetchall()]
-	return result
 

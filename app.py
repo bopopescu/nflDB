@@ -6,20 +6,32 @@ from dbApp.functions import *
 
 app = Flask(__name__)
 
-
-@app.route('/team')
-def teamPerformance():
-	teams = dbApp.db.getAllTeams()
-	return render_template('team.html',teams=teams)
-
 @app.route('/')
 def hello():
     return render_template('index.html') 
 
+
+
+@app.route('/<page>Result', methods=['POST'])
+def results(page):
+	if page == 'teamPerf':
+		teamId = request.form['options']
+		year = request.form['years']
+		columns = request.form.getlist("columnValue")
+		results = dbApp.functions.getTeamPerformance(columns,teamId,year)
+		return render_template('results.html',result=results) 
+
+
 @app.route('/search', methods=['GET','POST'])
 def showResults():
 	option = str(request.form.get("options"))
+	print(option)
 	return redirect(url_for(option))
+
+@app.route('/team')
+def teamPerf():
+	teams = dbApp.functions.getAllTeams()
+	return render_template('team.html',teams=teams)
 
 
 
