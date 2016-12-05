@@ -1,12 +1,12 @@
 import pymysql
 import csv
 
-conn = pymysql.connect(host = "ix.cs.uoregon.edu", port = 3637, user = "modere", password = "michaelodere1", db = "nflDB")
+conn = pymysql.connect(host = "ix.cs.uoregon.edu", port = 3637, user = "modere", password = "michaelodere1", db = "NFLDB")
 
 
 cur = conn.cursor()
 
-stmt = "INSERT INTO Position (pos_id, position_name) VALUES (%s)"
+stmt = "INSERT INTO League (league_name) VALUES (%s)"
 
 
 cur = conn.cursor()

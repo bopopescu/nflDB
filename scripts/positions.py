@@ -2,7 +2,7 @@ import pymysql
 import csv
 
 # connect to db
-conn = pymysql.connect(host = "ix.cs.uoregon.edu", port = 3637, user = "modere", password = "michaelodere1", db = "nflDB")
+conn = pymysql.connect(host = "ix.cs.uoregon.edu", port = 3637, user = "modere", password = "michaelodere1", db = "NFLDB")
 
 # get cursor
 cur = conn.cursor()
