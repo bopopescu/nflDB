@@ -1,32 +1,33 @@
-<!DOCTYPE html>
-<html>
-   <head>
-      <title>NFL stats</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
-      <link href="static/style.css" rel="stylesheet" media="screen">
-   </head>
-   <body>
-      <div class="container">
+{% extends "base.html"%}
+
+{% block title %}Welcome!{% endblock %}
+
+{% block content %}
+   <div class="background">
+      <div id="topSection" class="container">
          <!--Start container-->
          <div class='row'>
-            <div class="col-md-8">
-               <h1>NFL Database Viewer</h1>
-               <h4>By: Brandon Cao and Michael Odere</h4>
-               <h5>CIS 451 - Fall 2016</h5>
+            <div id="top" class="col-md-8">
+               <div id="title">NFL Database Viewer</div>
+               <div id="author">By: Brandon Cao and Michael Odere</div>
+               <div id="class">CIS 451 - Fall 2016</div>
                <br>
                <br>
-               <form role="form" method='POST' action="{{url_for('showResults')}}">
-                  Enter something:<input type="text" name="query">
-                  <br>
+               <form role="form" method='POST' action="{{url_for('showResults')}}">           
+                     <select id="option" name="options" class="form-control">
+                      <option value="teamPerf">Team Performance</option>
+                      <option value="playerTeamStat">Player Statistics By Team</option>
+                      <option value="playerStat">Player Statistics By Name</option>
+                      <option value="teamInformation">Team Information</option>
+                     </select>
                   <br>
                   <button type="submit" class="btn btn-default">Submit</button>
                </form>
             </div>
-            <div class="col-md-4">
-               <img id="logo" src="static/nfl.jpg">
-            </div>
          </div>
       </div>
-   </body>
-</html>
+</div>
+
+
+
+{% endblock %}

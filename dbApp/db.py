@@ -11,10 +11,9 @@ configDB = {
 	'database': dbApp.config.DBdatabase,
 	'raise_on_warnings': dbApp.config.DBraise_on_warnings,
 	'autocommit': dbApp.config.DBautocommit# ,
-	#        'pool_name': app.config.DBpool_name,
-	#       'pool_size': app.config.DBpool_size
 }
 
+#Custom query
 def query(query='', parameters=()):
 	cnx = mysql.connector.connect(**configDB)
 	if cnx.is_connected():
@@ -38,3 +37,4 @@ def query(query='', parameters=()):
 		result.append(values)
 		cnx.close()
 		return result
+

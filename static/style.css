@@ -1,10 +1,85 @@
 th{
+	background-color: #0000A0;
+	color: white;
+	text-align:center;
+}
+
+.tables{
+	opacity: 1;
+	color:white;
+}
+
+body{
+    background: url(background.jpg);
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    color:white;
+}
+
+#top{
+	margin-top: 5%;
+	margin-left: 2%;
+}
+#topSection{
 	background-color: black;
+	opacity: .8;
+	width: 100vw;
+	height: 100vh;
+
+}
+
+#resultSection{
+	margin: 5%;
+	background-color: black;
+	opacity: .8;
+	text-align: center;
+}
+
+#topSection > .row{
+	opacity: 1;
 	color: white;
 }
 
+img#logo{
+	float:right;
+	width: 90%;
+	height: 90%;
+}
 
-img #logo{
-	height: 40%;
-	width: 40%;
+div#title{
+	font-size: 500% !important;
+	color: white;
+
+}
+
+div#author, div#class{
+	font-size:200% !important;
+	color:white;
+}
+
+select#option.form-control{
+	width:30%;
+}
+
+input.radioB{
+    margin-left: 30px;
+    margin-right: 10px;
+}
+
+div.headers{
+	font-size: 200%;
+}
+
+div.columnCheckBox>input{
+    display: inline-block;
+    zoom: 1;
+    width: 1.6%;
+    text-align: left;
+    margin-left: 1.5%;
+    margin-bottom: 2%;
+}
+
+table{
+	table-layout: fixed
 }
