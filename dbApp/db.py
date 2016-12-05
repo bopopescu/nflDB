@@ -11,8 +11,6 @@ configDB = {
 	'database': dbApp.config.DBdatabase,
 	'raise_on_warnings': dbApp.config.DBraise_on_warnings,
 	'autocommit': dbApp.config.DBautocommit# ,
-	#        'pool_name': app.config.DBpool_name,
-	#       'pool_size': app.config.DBpool_size
 }
 
 def query(query='', parameters=()):
@@ -38,3 +36,17 @@ def query(query='', parameters=()):
 		result.append(values)
 		cnx.close()
 		return result
+
+def getAllTeams():
+	cnx = mysql.connector.connect(**configDB)
+	string = 'SELECT * FROM nflDB.Teams'
+	if cnx.is_connected():
+		print('database connection established.')
+		pass
+	else:
+		print('database connection failed.')
+	cursor = cnx.cursor()
+	cursor.execute(string)
+	result = cursor.fetchall()
+	return result
+

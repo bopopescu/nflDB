@@ -1,10 +1,56 @@
 th{
-	background-color: black;
+	background-color: blue;
 	color: white;
 }
 
+.tables{
+	opacity: 1;
+	color:white;
+}
 
-img #logo{
-	height: 40%;
-	width: 40%;
+body{
+    background: url(background.jpg);
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+#topSection{
+	margin: 5%;
+	background-color: black;
+	opacity: .8;
+	padding-top: 2%;
+	padding-bottom: 8%;
+
+}
+
+#resultSection{
+	margin: 5%;
+	background-color: black;
+	opacity: .8;
+	padding-top: 2%;
+	padding-bottom: 8%;
+	text-align: center;
+}
+
+#topSection > .row{
+	opacity: 1;
+	color: white;
+}
+
+img#logo{
+	float:right;
+	width: 90%;
+	height: 90%;
+}
+
+div#title{
+	font-size: 500% !important;
+	color: white;
+
+}
+
+div#author, div#class{
+	font-size:200% !important;
+	color:white;
 }
