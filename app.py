@@ -8,25 +8,18 @@ app = Flask(__name__)
 
 
 @app.route('/team')
-def Team():
-	return render_template('team.html')
+def teamPerformance():
+	teams = dbApp.db.getAllTeams()
+	return render_template('team.html',teams=teams)
 
 @app.route('/')
 def hello():
     return render_template('index.html') 
 
-
 @app.route('/search', methods=['GET','POST'])
 def showResults():
 	option = str(request.form.get("options"))
 	return redirect(url_for(option))
-
-	# page = option.lower() + '.html'
-	# return render_template(page) 
-
-
-
-
 
 
 

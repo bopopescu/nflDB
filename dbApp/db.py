@@ -39,7 +39,7 @@ def query(query='', parameters=()):
 
 def getAllTeams():
 	cnx = mysql.connector.connect(**configDB)
-	string = 'SELECT * FROM nflDB.Teams'
+	string = 'SELECT CONCAT(t.location, " ", t.team_name) FROM NFLDB.Teams t'
 	if cnx.is_connected():
 		print('database connection established.')
 		pass
@@ -47,6 +47,6 @@ def getAllTeams():
 		print('database connection failed.')
 	cursor = cnx.cursor()
 	cursor.execute(string)
-	result = cursor.fetchall()
+	result = [column[0] for column in cursor.fetchall()]
 	return result
 

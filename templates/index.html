@@ -7,7 +7,7 @@
       <div id="topSection" class="container">
          <!--Start container-->
          <div class='row'>
-            <div class="col-md-8">
+            <div id="top" class="col-md-8">
                <div id="title">NFL Database Viewer</div>
                <div id="author">By: Brandon Cao and Michael Odere</div>
                <div id="class">CIS 451 - Fall 2016</div>
@@ -15,10 +15,9 @@
                <br>
                <form role="form" method='POST' action="{{url_for('showResults')}}">           
                      <select id="option" name="options" class="form-control">
-                       <option>Team</option>
-                       <option>Players</option>
-                       <option>Owners</option>
-                       <option>Game Performance</option>
+                       <option value="teamPerformance">Team Performance</option>
+                      <option value="playerStat">Player Statistics</option>
+                       <option value="teamInformation">Team Information</option>
                      </select>
                   <br>
                   <button type="submit" class="btn btn-default">Submit</button>

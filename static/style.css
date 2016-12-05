@@ -13,14 +13,18 @@ body{
     background-size: cover;
     width: 100vw;
     height: 100vh;
+    color:white;
 }
 
+#top{
+	margin-top: 5%;
+	margin-left: 2%;
+}
 #topSection{
-	margin: 5%;
 	background-color: black;
 	opacity: .8;
-	padding-top: 2%;
-	padding-bottom: 8%;
+	width: 100vw;
+	height: 100vh;
 
 }
 
@@ -53,4 +57,26 @@ div#title{
 div#author, div#class{
 	font-size:200% !important;
 	color:white;
+}
+
+select#option.form-control{
+	width:30%;
+}
+
+input.radioB{
+    margin-left: 30px;
+    margin-right: 10px;
+}
+
+div.headers{
+	font-size: 200%;
+}
+
+div.columnCheckBox>input{
+    display: inline-block;
+    zoom: 1;
+    width: 1.6%;
+    text-align: left;
+    margin-left: 1.5%;
+    margin-bottom: 2%;
 }
