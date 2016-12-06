@@ -5,49 +5,57 @@ th{
 }
 
 .tables{
-	opacity: 1;
-	color:white;
+    opacity: 1;
+    color: white;
+    height: 400px;
+    border-color: white;
+    border-width: 1px;
+    border-style: solid;
+    overflow: scroll;
+}
+
+
+
+table.table.table-bordered{
+	overflow: scroll;
+}
+
+th,td { 
+
+	min-width: 200px; 
 }
 
 body{
     background: url(background.jpg);
     background-size: cover;
-    width: 100vw;
     height: 100vh;
     color:white;
+    overflow: hidden;
 }
 
 #top{
 	margin-top: 5%;
 	margin-left: 2%;
 }
-#topSection{
+#blackBackground{
 	background-color: black;
 	opacity: .8;
 	width: 100vw;
 	height: 100vh;
+	padding-top: 5%;
+	padding-left: 3%;
 
 }
 
-#resultSection{
-	margin: 5%;
-	background-color: black;
-	opacity: .8;
-	text-align: center;
-}
 
 #topSection > .row{
 	opacity: 1;
 	color: white;
 }
 
-img#logo{
-	float:right;
-	width: 90%;
-	height: 90%;
-}
 
-div#title{
+
+div.top{
 	font-size: 500% !important;
 	color: white;
 
@@ -62,7 +70,7 @@ select#option.form-control{
 	width:30%;
 }
 
-input.radioB{
+input.radioButtons{
     margin-left: 30px;
     margin-right: 10px;
 }
@@ -80,16 +88,12 @@ div.columnCheckBox>input{
     margin-bottom: 2%;
 }
 
-table{
-	table-layout: fixed
-}
-
-input#customText{
+input#customQuery{
 	width:80%;
 	color:black;
 }
 
-#queryResult{
-	font-size:150%;
+#queryHeader{
+	font-size:210%;
 	text-align: left;
 }

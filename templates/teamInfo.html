@@ -1,28 +1,20 @@
 {% extends "base.html"%}
 {% block title %}Team{% endblock %}
-{% block content %}
-   <div class="background">
-      <div id="topSection" class="container">
-         <!--Start container-->
-         <div class='row'>
-            <div id="top" class="col-md-12">
-                                    <form role="form" action="{{ url_for('hello') }}">
-           <button type="submit" style="float:right;margin-right:5%;" class="btn btn-default">Back to home page</button>
-         </form>
-               <div id="title">Select a team:</div>
-               <br>
-               <br>
-               <form role="form" method='POST' action="{{url_for('results', page='teamInfo')}}">  
-               <select id="option" width="50%" name="options" class="form-control">
-                  {% for team in teams %}
-                  <option value={{team[1]}}>{{team[0]}}</option>
-                  {%   endfor   %}
-               </select> 
-               <br>                    
-               <button type="submit" class="btn btn-default">Submit</button>
-               </form>
-            </div>
-         </div>
-      </div>
-  </div>
+{% block header %}
+<form role="form" action="{{ url_for('hello') }}">
+   <button type="submit" style="float:right;margin-right:5%;" class="btn btn-default">Back to home page</button>
+</form>
+Select a team:{% endblock %}
+{% block body %}
+<br>
+<br>
+<form role="form" method='POST' action="{{url_for('results', page='teamInfo')}}">
+   <select id="option" name="options" class="form-control">
+      {% for team in teams %}
+      <option value={{team[1]}}>{{team[0]}}</option>
+      {%   endfor   %}
+   </select>
+   <br>                    
+   <button type="submit" class="btn btn-default">Submit</button>
+</form>
 {% endblock %}
