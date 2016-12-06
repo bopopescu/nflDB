@@ -48,14 +48,14 @@ def main():
 
 
         # execute command for each line of data
-        cur.execute(stmt, teamData)
+        #cur.execute(stmt, teamData)
 
 
     #for line in positions:
         #print line
 
     # save
-    conn.commit()
+    #conn.commit()
 
     # close
     cur.close()
