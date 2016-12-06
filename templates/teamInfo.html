@@ -1,25 +1,28 @@
 {% extends "base.html"%}
 {% block title %}Team{% endblock %}
 {% block content %}
-<div id="title">Search By Teams:</div>
-<br>
-<br>
-<div class="headers">Select team:</div>
-<form role="form" method='POST' action="{{url_for('results', page='teamInfo')}}">
-   <select id="option" width="50%" name="options" class="form-control">
-      {% for team in teams %}
-      <option value={{team[1]}}>{{team[0]}}</option>
-      {%   endfor   %}
-   </select>
-   <br>
-   <div class="headers">Select What Information You Want To Know About The Team:</div>
-   <br>
-   <div class="columnCheckBox">
-      <input type="checkbox" name="owner" value="i.owner_id">Owners
-      <input type="checkbox" name="league" value="l.league_id">League
-      <input type="checkbox" name="coach" value="c.coach_id">Coach
-   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-   <br>
-</form>
+   <div class="background">
+      <div id="topSection" class="container">
+         <!--Start container-->
+         <div class='row'>
+            <div id="top" class="col-md-12">
+                                    <form role="form" action="{{ url_for('hello') }}">
+           <button type="submit" style="float:right;margin-right:5%;" class="btn btn-default">Back to home page</button>
+         </form>
+               <div id="title">Select a team:</div>
+               <br>
+               <br>
+               <form role="form" method='POST' action="{{url_for('results', page='teamInfo')}}">  
+               <select id="option" width="50%" name="options" class="form-control">
+                  {% for team in teams %}
+                  <option value={{team[1]}}>{{team[0]}}</option>
+                  {%   endfor   %}
+               </select> 
+               <br>                    
+               <button type="submit" class="btn btn-default">Submit</button>
+               </form>
+            </div>
+         </div>
+      </div>
+  </div>
 {% endblock %}

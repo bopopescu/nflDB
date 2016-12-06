@@ -83,3 +83,13 @@ div.columnCheckBox>input{
 table{
 	table-layout: fixed
 }
+
+input#customText{
+	width:80%;
+	color:black;
+}
+
+#queryResult{
+	font-size:150%;
+	text-align: left;
+}

@@ -16,6 +16,8 @@ configDB = {
 #Custom query
 def query(query='', parameters=()):
 	cnx = mysql.connector.connect(**configDB)
+	print(query)
+	print(parameters)
 	if cnx.is_connected():
 		print('database connection established.')
 		pass

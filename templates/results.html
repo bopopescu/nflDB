@@ -15,7 +15,7 @@
             {%  if result | length < 1  %}
             <h2>NO RESULT</h2>
             {%  else  %}
-            <p>Query = {{result[2]}}</p>
+            <div id="queryResult">Query = {{result[2]}}</div>
             <br>
             <div class="tables" style="height: 410px;overflow: scroll;">
             <table class="table table-bordered">
