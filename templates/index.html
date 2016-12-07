@@ -16,8 +16,41 @@
    <br>
    <button type="submit" class="btn btn-default">Submit</button>
 </form>
-</div>
-</div>
-</div>
+<br>
+<br>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Source Code:</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<h5>HTML Pages:</h5>
+			<div>
+			<a href="{{ url_for('static', filename='textFile/base.txt') }}">Base.html</a> - All HTML pages extend base.html. <br>Includes the headers and any default layouts that are gonna be on each page.
+			</div>
+			<div>
+			<a href="{{ url_for('static', filename='textFile/index.txt') }}">index.html</a> - Opening page
+			</div>
+			<div>
+			<a href="{{ url_for('static', filename='textFile/players.txt') }}">players.html</a> - Search players page
+			</div>
+			<div>
+			<a href="{{ url_for('static', filename='textFile/results.txt') }}">results.html</a> - Query results page
+			</div>
+			<div>
+			<a href="{{ url_for('static', filename='textFile/team.txt') }}">team.html</a> - Team Performance page
+			</div>
+			<div>
+			<a href="{{ url_for('static', filename='textFile/teamInfo.txt') }}">teamInfo.html</a> - Team information page
+			</div>
+			<div>
+			<a href="{{ url_for('static', filename='textFile/customQuery.txt') }}">customQuery.html</a> - Page to perform a custom query
+			</div>
+		</div>
+
+	</div>
 </div>
 {% endblock %}

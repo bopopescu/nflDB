@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, url_for, jsonify, json,redirect
 from dbApp import config
 from dbApp.db import *
-
+import os
 
 app = Flask(__name__)
 dbFunctions = dbApp.db.dbFunctions()
@@ -58,6 +58,7 @@ def playersByTeam():
 	teams = dbFunctions.getAllTeams()
 	positions = dbFunctions.getAllPositions()
 	return render_template('players.html', positions = positions,teams=teams)
+
 
 if __name__ == '__main__':
     app.run(port=8000, debug=True)

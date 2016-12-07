@@ -1,0 +1,23 @@
+{% extends "base.html"%}
+{% block title %}Welcome!{% endblock %}
+{% block header %}NFL Database Viewer{% endblock %}
+{% block body %}
+<div id="author">By: Brandon Cao and Michael Odere</div>
+<div id="class">CIS 451 - Fall 2016</div>
+<br>
+<br>
+<form role="form" method='POST' action="{{url_for('redirectPage')}}">
+   <select id="option" name="options" class="form-control">
+      <option value="Team-Performance">Team Performance</option>
+      <option value="Player-By-Team">Player Statistics By Team</option>
+      <option value="Team-Information">Team Information</option>
+      <option value="Custom-Query">Custom Query</option>
+   </select>
+   <br>
+   <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html"%}
+{% block title %}Team{% endblock %}
+{% block header %}
+<form role="form" action="{{ url_for('hello') }}">
+   <button type="submit" style="float:right;margin-right:5%;" class="btn btn-default">Back to home page</button>
+</form>
+Search By Team:{% endblock %}   
+{% block body %}
+<br>
+<div class="headers">Select team:</div>
+<form role="form" method='POST' action="{{url_for('results', page='teamPerf')}}">
+   <select id="option" width="50%" name="options" class="form-control">
+      {% for team in teams %}
+      <option value={{team[1]}}>{{team[0]}}</option>
+      {%   endfor   %}
+   </select>
+   <br>
+   <br>
+   <div class="headers">Select Season: (Must select one)</div>
+   <div class="year">
+      <input type="radio" class="radioButtons" name="years" value="2016" checked>2016</input>
+      <input type="radio" class="radioButtons" name="years" value="2015">2015</input>
+      <input type="radio" class="radioButtons" name="years" value="2014">2014</input>
+   </div>
+   <br>
+   <br>
+   <div class="headers">Select Performance Stats: (Select at least one)</div>
+   <div class="columnCheckBox">
+      <input type="checkbox" name="columnValue" value="s.wins" checked>Wins
+      <input type="checkbox" name="columnValue" value="s.losses">Losses
+      <input type="checkbox" name="columnValue" value="s.ties">Ties
+      <input type="checkbox" name="columnValue" value="s.home">Home wins
+      <input type="checkbox" name="columnValue" value="s.road">Road wins
+      <input type="checkbox" name="columnValue" value="s.points_against">Points against
+      <input type="checkbox" name="columnValue" value="s.touchdowns">Touchdowns
+   </div>
+   <button type="submit" class="btn btn-default">Submit</button>
+   <br>
+</form>
+{% endblock %}
