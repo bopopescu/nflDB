@@ -1,6 +1,5 @@
 
 
-
 DBuser              = 'bcao'
 DBpassword          = 'thecow11'
 DBhost              = 'ix.cs.uoregon.edu'

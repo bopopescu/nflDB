@@ -2,8 +2,11 @@ from flask import Flask, render_template, request, url_for, jsonify, json,redire
 from dbApp import config
 from dbApp.db import *
 import os
+import CONFIG   # Separate out per-machine configuration 
+
 
 app = Flask(__name__)
+app.debug=CONFIG.DEBUG
 dbFunctions = dbApp.db.dbFunctions()
 
 @app.route('/')
@@ -61,4 +64,4 @@ def playersByTeam():
 
 
 if __name__ == '__main__':
-    app.run(port=8000, debug=True)
+    app.run(port=CONFIG.PORT, debug=True, host="0.0.0.0")
