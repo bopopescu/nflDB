@@ -11,7 +11,7 @@ test:	env CONFIG.py
 	(. env/bin/activate; $(PY) flask_main.py)
 
 run:	env CONFIG.py
-	(. env/bin/activate; gunicorn --b 0.0.0.0:$(PORT) app:app) &
+	(. env/bin/activate; nohup gunicorn -w 4 --bind 0.0.0.0:$(PORT) app:app) &
 
 env:
 	build
