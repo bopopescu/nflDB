@@ -42,6 +42,60 @@ def results(page):
 		results = dbFunctions.playerTeamPerformance(int(teamId),str(posId),str(table),2016)
 		return render_template('results.html',result=results) 
 
+
+@app.route('/<topStats>', methods=['GET','POST'])
+def topPlayers(topStats):
+	if topStats == 'passing':
+		query = "SELECT CONCAT(p.fname, ' ' , p.lname) as 'Name' ,o.* FROM NFLDB.off_performance o JOIN NFLDB.Players p on o.player_id = p.player_id WHERE p.position_id = 'QB' ORDER BY o.passing_yds DESC LIMIT 20"
+		results = dbFunctions.query(query)
+		results.append(query)
+		return render_template('results.html',result=results) 
+	elif topStats == 'rushing':
+		query = "SELECT CONCAT(p.fname, ' ' , p.lname) as 'Name' ,o.* FROM NFLDB.off_performance o JOIN NFLDB.Players p on o.player_id = p.player_id WHERE p.position_id = 'RB' ORDER BY o.rush_yds DESC LIMIT 20"
+		results = dbFunctions.query(query)
+		results.append(query)
+		return render_template('results.html',result=results) 
+	elif topStats == 'receiving':
+		query = "SELECT CONCAT(p.fname, ' ' , p.lname) as 'Name' ,o.* FROM NFLDB.off_performance o JOIN NFLDB.Players p on o.player_id = p.player_id WHERE p.position_id = 'WR' ORDER BY o.receiving_yds DESC LIMIT 20"
+		results = dbFunctions.query(query)
+		results.append(query)
+		return render_template('results.html',result=results) 
+	elif topStats == 'passingTD':
+		query = "SELECT CONCAT(p.fname, ' ' , p.lname) as 'Name' ,o.* FROM NFLDB.off_performance o JOIN NFLDB.Players p on o.player_id = p.player_id WHERE p.position_id = 'QB' ORDER BY o.passing_td DESC LIMIT 20"
+		results = dbFunctions.query(query)
+		results.append(query)
+		return render_template('results.html',result=results) 
+	elif topStats == 'rushingTD':
+		query = "SELECT CONCAT(p.fname, ' ' , p.lname) as 'Name' ,o.* FROM NFLDB.off_performance o JOIN NFLDB.Players p on o.player_id = p.player_id WHERE p.position_id = 'RB' ORDER BY o.rushing_td DESC LIMIT 20"
+		results = dbFunctions.query(query)
+		results.append(query)
+		return render_template('results.html',result=results) 
+	elif topStats == 'receivingTD':
+		query = "SELECT CONCAT(p.fname, ' ' , p.lname) as 'Name' ,o.* FROM NFLDB.off_performance o JOIN NFLDB.Players p on o.player_id = p.player_id WHERE p.position_id = 'WR' ORDER BY o.receiving_td DESC LIMIT 20"
+		results = dbFunctions.query(query)
+		results.append(query)
+		return render_template('results.html',result=results) 
+	elif topStats == 'tackles':
+		query = "SELECT CONCAT(p.fname, ' ' , p.lname) as 'Name' ,d.* FROM NFLDB.def_performance d JOIN NFLDB.Players p on d.player_id = p.player_id ORDER BY d.tackles DESC LIMIT 20"
+		results = dbFunctions.query(query)
+		results.append(query)
+		return render_template('results.html',result=results) 
+	elif topStats == 'interceptions':
+		query = "SELECT CONCAT(p.fname, ' ' , p.lname) as 'Name' ,d.* FROM NFLDB.def_performance d JOIN NFLDB.Players p on d.player_id = p.player_id ORDER BY d.interceptions DESC LIMIT 20"
+		results = dbFunctions.query(query)
+		results.append(query)
+		return render_template('results.html',result=results) 
+	elif topStats == 'fumble':
+		query = "SELECT CONCAT(p.fname, ' ' , p.lname) as 'Name' ,d.* FROM NFLDB.def_performance d JOIN NFLDB.Players p on d.player_id = p.player_id ORDER BY d.forced_fumbles DESC LIMIT 20"
+		results = dbFunctions.query(query)
+		results.append(query)
+		return render_template('results.html',result=results) 
+	elif topStats == 'fg':
+		query = "SELECT CONCAT(p.fname, ' ' , p.lname) as 'Name' ,k.* FROM NFLDB.kicker_performance k JOIN NFLDB.Players p on k.player_id = p.player_id ORDER BY k.field_goal_made DESC LIMIT 20"
+		results = dbFunctions.query(query)
+		results.append(query)
+		return render_template('results.html',result=results) 
+
 @app.route('/Team-Performance')
 def teamPerf():
 	teams = dbFunctions.getAllTeams()

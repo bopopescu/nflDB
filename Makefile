@@ -1,6 +1,6 @@
 PY = python3      # You might need a specific version like python3.4
 PYVENV = pyvenv   # You might need a specific version like pyvenv-3.4
-PORT = 5656       # Choose a port number that doesn't conflict, or specify as arg to make
+PORT = 5050       # Choose a port number that doesn't conflict, or specify as arg to make
 
 install:	CONFIG.py
 	rm -rf env  # In case it is already there
@@ -11,7 +11,7 @@ test:	env CONFIG.py
 	(. env/bin/activate; $(PY) flask_main.py)
 
 run:	env CONFIG.py
-	(. env/bin/activate; gunicorn -b 0.0.0.0:$(PORT) app:app) &
+	(. env/bin/activate; gunicorn --b 0.0.0.0:$(PORT) app:app) &
 
 env:
 	build

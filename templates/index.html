@@ -4,8 +4,7 @@
 {% block body %}
 <div id="author">By: Brandon Cao and Michael Odere</div>
 <div id="class">CIS 451 - Fall 2016</div>
-<br>
-<br>
+<h2>Seach by a specific category in the dropdown menu:</h2>
 <form role="form" method='POST' action="{{url_for('redirectPage')}}">
    <select id="option" name="options" class="form-control">
       <option value="Team-Performance">Team Performance</option>
@@ -17,40 +16,27 @@
    <button type="submit" class="btn btn-default">Submit</button>
 </form>
 <br>
-<br>
 
+<h2>Click to view stats:</h2>
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">
-			<h1>Source Code:</h1>
-		</div>
-	</div>
-	<div class="row">
 		<div class="col-md-4">
-			<h5>HTML Pages:</h5>
-			<div>
-			<a href="{{ url_for('static', filename='textFile/base.txt') }}">Base.html</a> - All HTML pages extend base.html. <br>Includes the headers and any default layouts that are gonna be on each page.
-			</div>
-			<div>
-			<a href="{{ url_for('static', filename='textFile/index.txt') }}">index.html</a> - Opening page
-			</div>
-			<div>
-			<a href="{{ url_for('static', filename='textFile/players.txt') }}">players.html</a> - Search players page
-			</div>
-			<div>
-			<a href="{{ url_for('static', filename='textFile/results.txt') }}">results.html</a> - Query results page
-			</div>
-			<div>
-			<a href="{{ url_for('static', filename='textFile/team.txt') }}">team.html</a> - Team Performance page
-			</div>
-			<div>
-			<a href="{{ url_for('static', filename='textFile/teamInfo.txt') }}">teamInfo.html</a> - Team information page
-			</div>
-			<div>
-			<a href="{{ url_for('static', filename='textFile/customQuery.txt') }}">customQuery.html</a> - Page to perform a custom query
-			</div>
-		</div>
+			<a href="{{ url_for('topPlayers', topStats='passing')}}">Top 20 Passing Yards Leaders</a><br>
+			<a href="{{ url_for('topPlayers', topStats='rushing')}}">Top 20 Rushing Yards Leaders</a><br>
+			<a href="{{ url_for('topPlayers', topStats='receiving')}}">Top 20 Receiving Yards Leaders</a><br>
 
+			<br>
+			<a href="{{ url_for('topPlayers', topStats='passingTD')}}">Top 20 Passing Touchdown Leaders</a><br>
+			<a href="{{ url_for('topPlayers', topStats='rushingTD')}}">Top 20 Rushing Touchdown Leaders</a><br>
+			<a href="{{ url_for('topPlayers', topStats='receivingTD')}}">Top 20 Receiving Touchdown Leaders</a><br>
+		</div>
+		<div class="col-md-4">
+			<a href="{{ url_for('topPlayers', topStats='tackles')}}">Top 20 Solo Tackles</a><br>
+			<a href="{{ url_for('topPlayers', topStats='interceptions')}}">Top 20 In Interceptions</a><br>
+			<a href="{{ url_for('topPlayers', topStats='fumble')}}">Top 20 Forced Fumbles</a><br>
+			<a href="{{ url_for('topPlayers', topStats='fg')}}">Top 20 Field Goals Made</a><br>
+		</div>
 	</div>
+
 </div>
 {% endblock %}

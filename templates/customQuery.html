@@ -7,7 +7,6 @@
 Query Database:{% endblock %}   
 {% block body %}
 <br>
-<br>
 <form role="form" method='POST' action="{{url_for('results', page='customQuery')}}">
    <div class="headers">Enter Query:</div>
    <input id="customQuery" name="query" type="Text">
@@ -16,4 +15,53 @@ Query Database:{% endblock %}
    <button type="submit" class="btn btn-default">Submit</button>
    <br>
 </form>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Advance queries you can enter in:</h1>
+
+
+			<br>
+			<p>SELECT p.fname, p.lname, s.amount FROM NFLDB.Players AS p JOIN NFLDB.salaries AS s ON p.player_id = s.player_id ORDER BY s.amount DESC;</p>
+			<br>
+			<p>SELECT pos.position_name, AVG(s.amount) as avg_amount
+FROM NFLDB.positions AS pos
+JOIN NFLDB.Players AS p ON p.position_id = pos.pos_id
+JOIN NFLDB.salaries AS s ON s.player_id = p.player_id
+GROUP BY pos.position_name
+ORDER BY avg_amount DESC;</p>
+			<br>
+			<p>SELECT l.league_name, SUM(op.passing_td) AS TotalPassingTDs, 
+SUM(op.rush_td) AS TotalRushingTDs, 
+SUM(op.receiving_td) AS TotalReceivingTDs
+FROM NFLDB.League AS l 
+JOIN NFLDB.Teams AS t ON t.league_id = l.league_id
+JOIN NFLDB.Players AS p ON p.team_id = t.team_id
+JOIN NFLDB.off_performance AS op ON op.player_id = p.player_id
+GROUP BY l.league_name
+ORDER BY TotalPassingTDs DESC;</p>
+
+			<br>
+
+						<p>SELECT t.team_name, SUM(t_s.wins) AS wins, SUM(t_s.losses) AS losses
+FROM NFLDB.Teams AS t
+JOIN NFLDB.team_season_performance AS t_s ON t_s.team_id = t.team_id
+GROUP BY t.team_name
+ORDER BY wins DESC;</p>
+
+
+						<p>SELECT p.fname, p.lname, IFNULL((k.field_goal_att / k.field_goal_made), 0) as Kick_Percentage
+FROM NFLDB.kicker_performance AS k
+JOIN NFLDB.Players AS p ON k.player_id = p.player_id
+ORDER BY Kick_percentage DESC;</p>
+
+
+		</div>
+		<div class="col-md-6">
+
+
+		</div>
+	</div>
+</div>
 {% endblock %}
